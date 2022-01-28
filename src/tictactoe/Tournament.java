@@ -1,12 +1,15 @@
 package tictactoe;
 
-public class Main {
+public class Tournament {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Player p1 = new Player();
-		Player p2 = new Player();
-		Renderer r1 = new Renderer();
+
+		PlayerFactory play = new PlayerFactory();
+		RendererFactory render = new RendererFactory();
+		Player p1 = play.buildPlayer("human");
+		Player p2 = play.buildPlayer("human");
+		Renderer r1 = render.buildRenderer();
 		Game g = new Game(p1, p2, r1);
 		int count = 0;
 		while (count < Board.WIN_STREAK) {
