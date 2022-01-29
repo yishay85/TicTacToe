@@ -29,7 +29,7 @@ public class HumanPlayer implements Player {
 	}
 
 	/**
-	 * @param countWin the countWin to set
+	 * count the winning of the player
 	 */
 	public void setCountWin() {
 		this.countWin++;

@@ -12,6 +12,7 @@ public class PlayerFactory {
 		case "clever":
 			break;
 		case "whatever":
+			player = new WhateverPlayer();
 			break;
 		}
 		return player;

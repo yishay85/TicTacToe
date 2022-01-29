@@ -30,11 +30,11 @@ public class Board {
 
 	public boolean putMark(Mark mark, int row, int col) {
 		if (!checkingValidLocation(row, col)) {
-			System.out.println("The location you selected is out of range,\n  try again.\n");
+			System.err.println("The location you selected is out of range,\n  try again.\n");
 			return false;
 		}
 		if (this.board[row][col] != Mark.BLANK) {
-			System.out.println("The location you selected is occupied,\n  try again.\n");
+			System.err.println("The location you selected is occupied,\n  try again.\n");
 			return false;
 		}
 
