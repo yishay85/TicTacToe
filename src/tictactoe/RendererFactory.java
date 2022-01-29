@@ -2,7 +2,7 @@ package tictactoe;
 
 public class RendererFactory {
 
-	public Renderer buildRenderer() {
+	public Renderer buildRenderer(String rendererName) {
 		return new ConsoleRenderer();
 	}
 }
