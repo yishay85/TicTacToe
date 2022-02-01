@@ -30,6 +30,7 @@ class ConsoleRenderer implements Renderer {
 	 * Initializes the renderer.
 	 */
 	public ConsoleRenderer() {
+		System.out.println("\nWalcam\n");
 		if (Board.SIZE > 9 || Board.SIZE < 2) {
 			String errorMsg = "Board size must be in the range [2, 9]";
 			Logger.getGlobal().severe(errorMsg);

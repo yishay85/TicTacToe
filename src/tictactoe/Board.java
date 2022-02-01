@@ -2,7 +2,8 @@ package tictactoe;
 
 /**
  * @author Yishay
- *
+ * 
+ *         This class is in charge of the game board
  */
 enum Mark {
 	BLANK, X, O
@@ -28,6 +29,14 @@ public class Board {
 		this.winner = Winner.IN_PROGRESS;
 	}
 
+	/**
+	 * Put a mark in the required place
+	 * 
+	 * @param mark The player's sign (X or O)
+	 * @param row  The position of the row on the board
+	 * @param col  The position of the column on the board
+	 * @return True if the transaction completed successfully
+	 */
 	public boolean putMark(Mark mark, int row, int col) {
 		if (!checkingValidLocation(row, col)) {
 			System.err.println("The location you selected is out of range,\n  try again.\n");
@@ -45,28 +54,54 @@ public class Board {
 		return true;
 	}
 
+	/**
+	 * Checks if the position in the board is available
+	 * 
+	 * @param row The position of the row on the board
+	 * @param col The position of the column on the board
+	 * @return True if the position is blank
+	 */
 	public Mark getMark(int row, int col) {
 		if (!checkingValidLocation(row, col))
 			throw new Error("The coordinates are out of range");
 		return this.board[row][col];
 	}
 
+	/**
+	 * Check if the game is over.
+	 * 
+	 * @return True if the game is over
+	 */
 	public boolean isGameEnded() {
-		// TODO: need to check all the possibility if we have a winer
-
 		if (winner != Winner.IN_PROGRESS || checkingForDraw())
 			return true;
 		return false;
 	}
 
+	/**
+	 * 
+	 * @return status game (DRAW, X WIN, O WIN, IN PROGRESS)
+	 */
 	public Winner GameStatus() {
 		return winner;
 	}
 
+	/**
+	 * checking if the location is valid
+	 * 
+	 * @param row The position of the row on the board
+	 * @param col The position of the column on the board
+	 * @return True if valid
+	 */
 	private boolean checkingValidLocation(int row, int col) {
 		return (row < SIZE && row >= 0) && (col < SIZE && col >= 0);
 	}
 
+	/**
+	 * Checks if the game ends in a draw
+	 * 
+	 * @return True if its draw
+	 */
 	private boolean checkingForDraw() {
 		if (countBlankMark == SIZE * SIZE) {
 			winner = Winner.DRAW;
@@ -75,6 +110,14 @@ public class Board {
 		return false;
 	}
 
+	/**
+	 * Checks if the game ended in victory
+	 * 
+	 * @param row  The position of the row on the board
+	 * @param col  The position of the column on the board
+	 * @param mark The player's sign (X or O)
+	 * @return True if the game end whit victory
+	 */
 	private boolean checkingForWinner(int row, int col, Mark mark) {
 		boolean flag = true;
 		for (int i = 0; i < board.length && flag; i++)

@@ -1,5 +1,12 @@
 package tictactoe;
 
+/**
+ * The class that serves as a human player. The user of the game chooses where
+ * to put marks.
+ * 
+ * @author Yishay
+ *
+ */
 public class HumanPlayer implements Player {
 	private int countWin;
 
@@ -7,6 +14,7 @@ public class HumanPlayer implements Player {
 		this.countWin = 0;
 	}
 
+	@Override
 	public void playTurn(Mark mark, Board board) {
 		int row, col;
 		do {
@@ -21,16 +29,12 @@ public class HumanPlayer implements Player {
 		} while (!board.putMark(mark, row, col));
 	}
 
-	/**
-	 * @return the countWin
-	 */
+	@Override
 	public int getCountWin() {
 		return countWin;
 	}
 
-	/**
-	 * count the winning of the player
-	 */
+	@Override
 	public void setCountWin() {
 		this.countWin++;
 	}

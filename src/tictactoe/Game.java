@@ -2,6 +2,13 @@ package tictactoe;
 
 import java.util.Scanner;
 
+/***
+ * The class responsible for running the game
+ * 
+ * @author Yishay
+ *
+ */
+
 public class Game {
 
 	static Scanner scanner = new Scanner(System.in);
@@ -16,10 +23,14 @@ public class Game {
 
 	}
 
+	/**
+	 * A main method that runs the game and ensures that each player plays in turn.
+	 * 
+	 * @return The winner of the game (or drow)
+	 */
 	public Winner run() {
 		Mark markXorO = Mark.X;
 		Board board = new Board();
-		System.out.println("\nWalcam\n");
 		do {
 			if (markXorO == Mark.X)
 				markXorO = turn(playerX, markXorO, board);
@@ -31,6 +42,14 @@ public class Game {
 		return board.GameStatus();
 	}
 
+	/**
+	 * Switches the turn of one player to the other player
+	 * 
+	 * @param p:     The player
+	 * @param mark:  The player's sign (X or O)
+	 * @param board: The board of the game
+	 * @return mark turn
+	 */
 	private Mark turn(Player p, Mark mark, Board board) {
 		p.playTurn(mark, board);
 		if (mark == Mark.X)
@@ -38,12 +57,4 @@ public class Game {
 		return Mark.X;
 	}
 
-	/*
-	 * public static void main(String[] args) { // TODO Auto-generated method stub
-	 * Renderer testRenderer = new Renderer(); Board b = new Board(); Player p = new
-	 * Player(); System.out.println(p.playTurn(Mark.X, b));
-	 * System.out.println(b.putMark(Mark.X, 2, 0));
-	 * System.out.println(b.putMark(Mark.O, 0, 0)); System.out.println(b.getMark(1,
-	 * 0)); testRenderer.renderBoard(b); }
-	 */
 }

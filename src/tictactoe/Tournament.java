@@ -1,5 +1,11 @@
 package tictactoe;
 
+/**
+ * Main class responsible for creating players, game board and the game itself.
+ * 
+ * @author Yishay
+ *
+ */
 public class Tournament {
 
 	private Player player1, player2;
@@ -13,11 +19,17 @@ public class Tournament {
 		this.player2 = player2;
 	}
 
+	/**
+	 * creating players and renderer
+	 * 
+	 * @param args: [round count] [render target: console/void] [player:
+	 *              human/clever/whatever/] [player: human/clever/whatever/]
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		if (args.length != 4) {
 			System.err.println(
-					"The number of arguments passed to the main function must be 4 arguments in the following format:");
+					"The number of arguments passed to the main function must be 4 arguments in the following format:\njava Tournament [round count] [render target: console/void] [player: human/clever/whatever/] [player: human/clever/whatever/] ");
 			return;
 		}
 		int rounds;
@@ -55,6 +67,11 @@ public class Tournament {
 
 	}
 
+	/**
+	 * creating a tournament game
+	 * 
+	 * @return the result of the tournament
+	 */
 	public int[] playTournament() {
 		int round = 0;
 		int[] theWinner = { 0, 0, 0 };
